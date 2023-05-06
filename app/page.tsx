@@ -1,7 +1,6 @@
 import Container from '@/app/components/Container';
 
 import getCurrentUser from '@/app/actions/getCurrentUser';
-import ClientOnly from './components/ClientOnly';
 import EmptyState from './components/EmptyState';
 import getListings, { IListingsParams } from './actions/getListings';
 import ListingCard from './components/listings/ListingCard';
@@ -14,16 +13,15 @@ async function Home({ searchParams }: HomeProps) {
   const listings = await getListings(searchParams);
   const currentUser = await getCurrentUser();
 
-  // if (listings.length === 0) {
-  //   return (
-  //     <Container>
-  //       <EmptyState showReset />
-  //     </Container>
-  //   );
-  // }
+  if (listings.length === 0) {
+    return (
+      <Container>
+        <EmptyState showReset />
+      </Container>
+    );
+  }
 
   return (
-    // <ClientOnly>
     <Container>
       <div
         className='
@@ -43,7 +41,6 @@ async function Home({ searchParams }: HomeProps) {
         ))}
       </div>
     </Container>
-    // </ClientOnly>
   );
 }
 export default Home;

@@ -24,14 +24,13 @@ export default async function RootLayout({ children }: { children: React.ReactNo
   return (
     <html lang='en'>
       <body className={font.className}>
-        {/* <ClientOnly> */}
-          <ToasterProvider />
-          <SearchModal />
-          <RentModal />
-          <LoginModal />
-          <RegisterModal />
-          <Navbar currentUser={currentUser} />
-        {/* </ClientOnly> */}
+        <ToasterProvider />
+        <SearchModal />
+        <RentModal />
+        <LoginModal />
+        <RegisterModal />
+        <Navbar currentUser={currentUser} />
+
         <div
           className='pb-20 pt-28
         '
