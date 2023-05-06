@@ -14,19 +14,19 @@ async function Home({ searchParams }: HomeProps) {
   const listings = await getListings(searchParams);
   const currentUser = await getCurrentUser();
 
-  if (listings.length === 0) {
-    return (
-      <Container>
-        <EmptyState showReset />
-      </Container>
-    );
-  }
+  // if (listings.length === 0) {
+  //   return (
+  //     <Container>
+  //       <EmptyState showReset />
+  //     </Container>
+  //   );
+  // }
 
   return (
-    <ClientOnly>
-      <Container>
-        <div
-          className='
+    // <ClientOnly>
+    <Container>
+      <div
+        className='
             pt-24
             grid 
             grid-cols-1 
@@ -37,13 +37,13 @@ async function Home({ searchParams }: HomeProps) {
             2xl:grid-cols-6
             gap-8
           '
-        >
-          {listings.map((listing: any) => (
-            <ListingCard currentUser={currentUser} key={listing.id} data={listing} />
-          ))}
-        </div>
-      </Container>
-    </ClientOnly>
+      >
+        {listings.map((listing: any) => (
+          <ListingCard currentUser={currentUser} key={listing.id} data={listing} />
+        ))}
+      </div>
+    </Container>
+    // </ClientOnly>
   );
 }
 export default Home;

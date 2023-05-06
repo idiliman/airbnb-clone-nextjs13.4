@@ -10,28 +10,16 @@ async function PropertiesPage() {
   const currentUser = await getCurrentUser();
 
   if (!currentUser) {
-    return (
-      <ClientOnly>
-        <EmptyState title='Unauthorized' subtitle='Please login' />
-      </ClientOnly>
-    );
+    return <EmptyState title='Unauthorized' subtitle='Please login' />;
   }
 
   const listings = await getListings({ userId: currentUser.id });
   console.log('🚀 ~ PropertiesPage ~ listings:', listings);
 
   if (listings.length === 0) {
-    return (
-      <ClientOnly>
-        <EmptyState title='No properties found' subtitle='Looks like you hav no properties.' />
-      </ClientOnly>
-    );
+    return <EmptyState title='No properties found' subtitle='Looks like you hav no properties.' />;
   }
 
-  return (
-    <ClientOnly>
-      <PropertiesClient listings={listings} currentUser={currentUser} />
-    </ClientOnly>
-  );
+  return <PropertiesClient listings={listings} currentUser={currentUser} />;
 }
 export default PropertiesPage;

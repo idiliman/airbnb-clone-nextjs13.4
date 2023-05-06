@@ -12,16 +12,16 @@ async function FavouritesPage() {
 
   if (listings.length === 0) {
     return (
-      <ClientOnly>
-        <EmptyState title='No favorites found' subtitle='Looks like you have no favorite listings.' />
-      </ClientOnly>
+      // <ClientOnly>
+      <EmptyState title='No favourites found' subtitle='Looks like you have no favorite listings.' />
+      // </ClientOnly>
     );
   }
 
   return (
-    <ClientOnly>
-      <FavouritesClient listings={listings} currentUser={currentUser} />
-    </ClientOnly>
+    // <ClientOnly>
+    <FavouritesClient listings={listings} currentUser={currentUser} />
+    // </ClientOnly>
   );
 }
 export default FavouritesPage;

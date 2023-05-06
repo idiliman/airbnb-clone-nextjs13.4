@@ -18,16 +18,16 @@ async function ListingPage({ params }: { params: IParams }) {
 
   if (!listing) {
     return (
-      <ClientOnly>
-        <EmptyState />
-      </ClientOnly>
+      // <ClientOnly>
+      <EmptyState />
+      // </ClientOnly>
     );
   }
 
   return (
-    <ClientOnly>
-      <ListingClient listing={listing} currentUser={currentUser} reservations={reservation} />
-    </ClientOnly>
+    // <ClientOnly>
+    <ListingClient listing={listing} currentUser={currentUser} reservations={reservation} />
+    // </ClientOnly>
   );
 }
 

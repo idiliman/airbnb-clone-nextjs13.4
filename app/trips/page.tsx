@@ -10,11 +10,7 @@ async function TripsPage() {
   const currentUser = await getCurrentUser();
 
   if (!currentUser) {
-    return (
-      <ClientOnly>
-        <EmptyState title='Unauthorized' subtitle='Please login' />
-      </ClientOnly>
-    );
+    return <EmptyState title='Unauthorized' subtitle='Please login' />;
   }
 
   const reservations = await getReservations({ userId: currentUser.id });
@@ -22,17 +18,9 @@ async function TripsPage() {
   console.log('🚀 ~ TripsPage ~ reservations:', reservations);
 
   if (reservations.length === 0) {
-    return (
-      <ClientOnly>
-        <EmptyState title='No trips found' subtitle='Looks like you havent reserved any trips.' />
-      </ClientOnly>
-    );
+    return <EmptyState title='No trips found' subtitle='Looks like you havent reserved any trips.' />;
   }
 
-  return (
-    <ClientOnly>
-      <TripsClient reservations={reservations} currentUser={currentUser} />
-    </ClientOnly>
-  );
+  return <TripsClient reservations={reservations} currentUser={currentUser} />;
 }
 export default TripsPage;
